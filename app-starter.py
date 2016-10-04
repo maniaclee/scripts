@@ -56,7 +56,7 @@ def startApp(jar):
                 return
         else:
             cur = datetime.datetime.now()
-            if (cur - startTime).seconds > 10:
+            if (cur - startTime).seconds > 60 * 2:
                 raise Exception("time out waiting for the server to start .. ")
 
 
