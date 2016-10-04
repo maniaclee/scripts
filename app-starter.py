@@ -50,7 +50,6 @@ def startApp(jar):
     startTime = datetime.datetime.now()
     while True:
         data = ps.stdout.readline()
-        print "-----------", data, data.find("server started")
         if data.find("server started") > 0:
             if ps.poll() is not None:
                 print app, " server started !!!!!"
