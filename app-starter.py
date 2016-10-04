@@ -6,6 +6,10 @@ import subprocess
 
 import sys
 
+import time
+
+import datetime
+
 usr_home = os.path.expanduser('~')
 cwd = os.getcwd()
 # project = os.path.abspath("~/workspace/coding/user")
@@ -43,12 +47,18 @@ def startApp(jar):
     ps = subprocess.Popen(" java -jar %s &" % os.path.join(targetDir, jar), stdin=subprocess.PIPE,
                           stdout=subprocess.PIPE,
                           shell=True)
+    startTime = datetime.datetime.now()
     while True:
         data = ps.stdout.readline()
-        if data.find("server started"):
+        print "-----------", data, data.find("server started")
+        if data.find("server started") > 0:
             if ps.poll() is not None:
                 print app, " server started !!!!!"
                 return
+        else:
+            cur = datetime.datetime.now()
+            if (cur - startTime).seconds > 10:
+                raise Exception("time out waiting for the server to start .. ")
 
 
 def init():
