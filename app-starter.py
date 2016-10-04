@@ -53,7 +53,7 @@ def startApp(jar):
         data = ps.stdout.readline()
         if data.find("server started") > 0:
             if ps.poll() is not None:
-                print app, " server started !!!!!"
+                print" ------------- ", app, " server started !!!!! ---------------"
                 return
         else:
             cur = datetime.datetime.now()
@@ -97,7 +97,7 @@ if __name__ == '__main__':
     project = os.path.expanduser(args[1])
     if len(args) > 2 and args[2]:
         timeout = int(args[2])
-    print "project dir : ", project
-    init()
     print "=============================="
+    print "==== begin project dir : ", project
+    init()
     start()
