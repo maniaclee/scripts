@@ -1,14 +1,9 @@
 #!/usr/bin/python
 
-import os
-
-import subprocess
-
-import sys
-
-import time
-
 import datetime
+import os
+import subprocess
+import sys
 
 usr_home = os.path.expanduser('~')
 cwd = os.getcwd()
