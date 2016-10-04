@@ -36,7 +36,7 @@ def kill(pid):
 
 def execShell(cmd):
     l = shell(cmd)
-    return l[0]
+    return l[0] if l and len(l) > 0 else None
 
 
 def shell(cmd):
