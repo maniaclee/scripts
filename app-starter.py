@@ -96,12 +96,5 @@ if __name__ == '__main__':
     project = os.path.expanduser(args[1])
     print "project dir : ", project
     init()
-    print os.getcwd()
-    print project
-    print shell("ls ")
-    print targetDir
-    print "got", findTarget(targetDir)
-    print os.path.basename(project)
-    print findPid(app)
     print "=============================="
     start()
