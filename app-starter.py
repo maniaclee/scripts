@@ -17,6 +17,7 @@ project = os.path.expanduser("~/workspace/coding/user/user-biz")
 app = os.path.basename(project)
 
 targetDir = os.path.join(project, "target")
+timeout = 60 * 2
 
 
 def findTarget(target):
@@ -56,7 +57,7 @@ def startApp(jar):
                 return
         else:
             cur = datetime.datetime.now()
-            if (cur - startTime).seconds > 60 * 2:
+            if (cur - startTime).seconds > timeout:
                 raise Exception("time out waiting for the server to start .. ")
 
 
@@ -94,6 +95,8 @@ if __name__ == '__main__':
         print "app-starter.py [projectDir]"
         exit(0)
     project = os.path.expanduser(args[1])
+    if len(args) > 2 and args[2]:
+        timeout = int(args[2])
     print "project dir : ", project
     init()
     print "=============================="
